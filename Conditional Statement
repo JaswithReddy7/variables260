@@ -1,0 +1,85 @@
+09/01/2025:
+--Conditional Statement:
+1)To make the set of instruction(block of code)(conditional block) execute only when the given condition is true.
+2)Used to decide whether the code has to be executed or skipped based on the given condition.
+3)line-by-line (sequence)
+
+Block of Code:
+--Set of instructions.
+--It will execute only when that specific condition is true.
+
+Condition: An expression that evaluates a result(True or False)
+Ex: console.log(5>6)
+
+--Methods:
+if
+if else
+else if 
+switch
+Ternary Operator
+
+--if :Only one possible condition:
+	-if the condition is True it will execute other wise it skip 
+Syntax:
+if(condition){
+---block of code
+}
+
+
+Implementation of code:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let a=prompt("Enter score A")
+        let b=prompt("Enter score B")
+        if(a>=300){
+            document.write("Can team UP","<br>")
+        }
+        else if(b>=300){
+            document.write("Can team up","<br>")
+        }
+        if(a+=b<500){
+            document.write("Cannot team up",'<br>')
+        }
+        else if(a+=b>500){
+            document.write("")
+        }
+
+       /*let age=prompt("Enter your age")
+       let name=prompt("Enter the name")
+       if(age<18){
+        alert(name+" "+"you are too young to marry")
+       } 
+       else if(age>35){
+        alert(name+" "+"you are too old to marry")
+       }
+       else{
+        alert(name+" "+"perfect age to marry")
+       }
+       alert(name+" "+"Welcome to My World")*/
+
+        /*let a=4
+        let b=5
+        if(a>b)
+        {
+            document.write("hello Rishi","<br>")
+        }
+        if(a==b){
+            document.write("AShish BHAAII","<br>")
+        }
+        else{
+            document.write("HII Akshith","<br>")
+        }
+        document.write("Brilliant Rishi")*/
+    </script>
+</body>
+</html>
