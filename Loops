@@ -1,0 +1,86 @@
+20/01/2025
+
+Loops:
+
+**for loop :
+Syntax:
+for(initialisation; condition; update-expression){
+----block of code
+}
+loop starts--initialisation
+
+for example:
+for(i=10;1<=15;i++){
+  console.log(i);
+}
+#i=10 ;11; 12; 13; 14 ; 15
+#c=I<=15 ;10<=15 ; 11<=15; 12<=15; 13<=15; 14,=15 ;15<=15; 16<=15----False
+#updation==i=i+1  10=10+1=11;
+#b= 10 ;11 ;12; 13;  14; 15
+
+
+        for(let i=2;i<=9;i=i+2){
+            console.log(i+3);
+            /*i=2; 2<=9; i=2+2=4
+            -----2+3=5
+            i=4; 4<=9; i=4+2=6
+            -----4+3=7
+            i=6; 6<=9; i=6+2=8
+            -----6+3=9
+            i=8; 8<=8; i=8+2=10
+            -----8+3=11*/
+        }
+
+Implementation:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numbers=[1,2,3,4,5]
+        let sum=0
+        for(let i=0;i<numbers.length;i++){
+            sum=sum+numbers[i]
+
+            console.log(sum)
+        }
+        /*let n=9
+        for(i=1;i<=10;i++){
+            console.log(n +'*'+i+'='+n*i);
+        }*/
+        /*for(i=1;i<=5;i++){
+            console.log(i);
+            document.write("chiru",'<br>')
+        }*/
+    
+        /*for(let i=2;i<=9;i=i+2){
+            console.log(i+3);
+            /*i=2; 2<=9; i=2+2=4
+            -----2+3=5
+            i=4; 4<=9; i=4+2=6
+            -----4+3=7
+            i=6; 6<=9; i=6+2=8
+            -----6+3=9
+            i=8; 8<=8; i=8+2=10
+            -----8+3=11
+        }
+        */
+        /*for(let i=10;i<=15;i++){
+            console.log(i);
+        }*/
+        /*#i=10 ;11; 12; 13; 14 ; 15
+        #c=I<=15 ;10<=15 ; 11<=15; 12<=15; 13<=15; 14,=15 ;15<=15; 16<=15----False
+        #updation==i=i+1  10=10+1=11;
+        #b= 10 ;11 ;12; 13;  14; 15*/
+        /*for(i=1;i<=5;i++){
+            console.log(i)
+        }*/
+    </script>
+</body>
+</html>
