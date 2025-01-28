@@ -1,0 +1,82 @@
+28/01/2025:
+
+DOM(Document Object Model):
+--it is a programming interface in web development, that allows us to interact and ,manipulate(change) the html documents.
+--When the webpage is loaded, the browser creates the DOM of the webpage 
+--When an html file is loaded into the browser, the java Script cannot understand the html document directly.
+
+DOM: is basically the representation of same html document but in a tree-like structure composed of objects
+
+HTML DOM it allows java script to access(to get) and modify all the elements in HTML document.
+
+Key points:
+
+1)Structure : The DOM represents the structure of HTML document as tree; Each node in a tree represents the element , an attribute , text 
+2)Manipulation : Using js, you can interact with elements(buttons, h, p)we can modify ,add, remove elements Change styles of the HTML 
+3)Event Handling: 
+4)W3C: World Wide Web Cosortium 
+
+
+--In DOM all HTML elements are defined as the objects 
+property: Value that we can set to the objects (like changing content of an html element) 
+Method: an action (like add or delete) 
+
+Methods of Document Object:
+
+--1) Getting an Element by id 
+
+--2) Getting an Element by class
+	--returns all the element having the same class name.
+	--return the result in the form of HTML collection object.
+	--
+--3) Getting an Element by tag name
+
+--4) Getting an Element by query selector
+
+
+Implementation:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .a{
+      color:blue;
+    }
+    .b{
+      color:green;
+    }
+    .c{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  
+    <h1 class="b" id="a">mallesh</h1>
+    <h1 class="c" id="b"> Venkat</h1>
+    <h1 class="a" id="c">Ramya </h1>
+    <h1 class="c">Hari </h1>
+    <h1 class="a">Kavya</h1>
+    <h1 class="a">Anusha </h1>
+    <h1 class="c">Chiru </h1>
+    <h1 class="b">Ganesh </h1>
+    <h1 class="b">Ravi teja </h1>
+      
+<script>
+  /*let x=document.getElementById("a")
+  console.log(x)*/
+  /*let x=document.getElementsByClassName('a')
+  console.log(x)*/
+  let x=document.getElementsByTagName("Hi")
+  //console.log(x)
+  for(let i=0;i<x.length;i++){
+    console.log(x[i])
+  }
+</script>
+  
+</body>
+</html>
