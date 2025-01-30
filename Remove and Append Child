@@ -1,0 +1,65 @@
+30/01/2025:
+
+DOM:
+	1)create elements
+	2)single elements
+	3)multiple elements
+
+#how to remove the child elements from a parent node 
+
+removeChild()- to remove 
+
+
+
+<body>
+  <h1>Removing ChildNode</h1>
+  <ul>
+    <li>Ganesh </li>
+    <li>Ravi</li>
+    <li>Badulla</li>
+    <li>ramu</li>
+
+  </ul>
+  <script>
+    const ul=document.querySelector('ul')
+    const lists=document.querySelectorAll('li')
+    //console.log(ul)
+    //console.log(lists)
+    for (const list of lists){
+      console.log(`Removing:${list.textContent}`)
+      ul.removeChild(list)
+      console.log(lists)
+      console.log(list)
+
+    }
+  </script>
+</body>
+
+
+--To append a new element to the parent node:
+.appendChild()- 
+
+#at the end of the list item
+
+<body>
+  <div id="a">
+    <h1>Ravi</h1>
+    <h1>Ram</h1>
+  </div>
+  <div id="b">
+    <h2>Sam</h2>
+    <h2>Venkat</h2>
+
+  <script>
+    //create a new element
+    let n=document.createElement('h2')
+    n.textContent="chiru"
+    //get parent element
+    let p=document.getElementById('b')
+    console.log(p.innerText) //sam venkat
+    p.appendChild(n)
+
+    console.log(p.innerText) //sam Venkat chiru
+  </script>  
+  </div>
+</body>
