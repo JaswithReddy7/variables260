@@ -1,0 +1,112 @@
+31/01/2025:
+
+
+DOM Methods:
+
+1)create element(single, multiple)
+2).appendChild() #parent at the end
+
+--3).insertBefore(): insert a new node before an existing node as child node of a specific parent
+-----requires a reference to both the new node and existing node you want to insert before
+
+/*let n=document.createElement('h1')
+    let c=document.createElement('h1')
+    c.textContent='chiru'
+    n.textContent='jaswith'
+
+    let h=document.createElement('h2')
+    h.textContent='badulla'
+
+    let p=document.getElementById('a')
+    let j=document.getElementById('s')
+    let l=document.getElementById('r')
+
+    let pp=document.getElementById('b')
+    let e=document.getElementById('d')
+    p.insertBefore(c,l)
+    p.insertBefore(n,j)
+    pp.insertBefore(h,e)*/
+
+Remove Element:
+
+--removeChild();
+ 	let b=document.getElementById('a')
+	b.remove()
+
+To remove child Element:
+
+.removeChild()
+
+
+<div id="a">
+    <h1 id="s">Ravi</h1>
+    <h1 id ="r">Ram</h1>
+    <h1></h1>
+  </div>
+    <div id="b">
+      <h2>Sam</h2>
+      <h2 id="d">Venkat</h2>
+    </div>
+  <script>
+
+    let p=document.getElementById("a")
+    let o=document.getElementById("s")
+    console.log(o)
+    p.removeChild(o)
+
+
+To replace an Element:
+
+---repaceChildren()
+
+
+
+Implementation:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="a">
+    <h1 id="s">Ravi</h1>
+    <h1 id ="r">Ram</h1>
+    <h1></h1>
+  </div>
+    <div id="b">
+      <h2>Sam</h2>
+      <h2 id="d">Venkat</h2>
+    </div>
+  <script>
+    let n=document.createElement("h1")
+    n.textContent='MallaReddy University'
+  
+    let p=document.getElementById("a")
+    //let o=document.getElementById("s")
+    //console.log(o)
+    //p.removeChild(o)
+    p.replaceChildren(n)
+    
+    /*let n=document.createElement('h1')
+    let c=document.createElement('h1')
+    c.textContent='chiru'
+    n.textContent='jaswith'
+
+    let h=document.createElement('h2')
+    h.textContent='badulla'
+
+    let p=document.getElementById('a')
+    let j=document.getElementById('s')
+    let l=document.getElementById('r')
+
+    let pp=document.getElementById('b')
+    let e=document.getElementById('d')
+    p.insertBefore(c,l)
+    p.insertBefore(n,j)
+    pp.insertBefore(h,e)*/
+  </script>
+</body>
+</html>
