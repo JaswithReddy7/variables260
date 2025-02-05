@@ -1,0 +1,133 @@
+05/02/2025:
+
+--To create a element in React Js
+-----React.createElement()
+Syntax:
+
+Type==tagname(h1,p,div)
+prop==class, id
+ReactDOM.createRoot()---to render the element 
+
+
+<div id="a"></div>
+    <script>
+        const b=React.createElement('h1', {id:'c'},'I am jaswith')
+        const e=document.getElementById("a")
+        const root=ReactDOM.createRoot(e)
+        root.render(b)
+    </script>
+
+
+JSX:
+---JavaScript XML
+---It is a syntax extension for javascript
+---JSX allows us to write HTML code in react js
+---JSX all the html tags must be closed 
+---JSX compile the html code to js
+---Babel is a tool in JSX;
+
+#CDN list --paste in code below the title tag
+
+
+Expressions:
+{ }
+
+Conditional Rendering:
+
+<div id="root"></div>
+    <script type="text/babel">
+        const App=()=>{
+            const isLoggedIn=true;
+            return(
+        <div>
+            {isLoggedIn?(<h1>Welcome back,User</h1>):(<h1>Please Log in</h1>)}
+            {isLoggedIn && <h1>You have a new Notification</h1>}
+        </div>
+            )
+        }
+        
+    //render the App component
+    const root=ReactDOM.createRoot(document.getElementById('root'))
+    root.render(<App/>)
+    </script>
+
+
+Functions:
+
+Using a Function call:
+---you can use a function call directly with in the JSX expressions
+ <div id="a"></div>
+    <script type="text/babel">
+        function getGreeting(name){
+            return `Hello , ${name}! Welcome to React`
+        }
+        function Greeting(){
+            const name='Jaswith'
+            return <h1>{getGreeting(name)}</h1>
+        }
+        //calling the function in JSX 
+        ///craete a root and render the root Greeting component
+        const root=ReactDOM.createRoot(document.getElementById('a'))
+        root.render(<Greeting/>)
+    </script>
+
+
+
+Implemnetatio:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Example</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="a"></div>
+    <script type="text/babel">
+        function getGreeting(name){
+            return `Hello , ${name}! Welcome to React`
+        }
+        function Greeting(){
+            const name='Jaswith'
+            return <h1>{getGreeting(name)}</h1>
+        }
+        //calling the function in JSX 
+        ///craete a root and render the root Greeting component
+        const root=ReactDOM.createRoot(document.getElementById('a'))
+        root.render(<Greeting/>)
+    </script>
+
+    <!--<div id="root"></div>
+    <script type="text/babel">
+        const App=()=>{
+            const isLoggedIn=true;
+            return(
+        <div>
+            {isLoggedIn?(<h1>Welcome back,User</h1>):(<h1>Please Log in</h1>)}
+            {isLoggedIn && <h1>You have a new Notification</h1>}
+        </div>
+            )
+        }
+        
+    //render the App component
+    const root=ReactDOM.createRoot(document.getElementById('root'))
+    root.render(<App/>)
+    </script>-->
+    
+   <!---<div id="a"></div>
+    //<script type="text/babel">
+        //const element = <h1 className="aa">Welcome to Hyderabad</h1>;
+        //const n=5
+        //const m=<h1>Ract is {n*2} better than JS</h1>;
+        //const e = document.getElementById('a');
+        //const root = ReactDOM.createRoot(e);
+        //root.render(m);
+    
+    
+</body>
+</html>
