@@ -1,0 +1,38 @@
+import React from 'react';
+import './Welcome.js';
+import Welcome from './Welcome.js';
+
+// const Welcome=()=> <h1 className='message'>Hello World!</h1>
+// function App() {
+//   return(
+//     <div className="App">
+//     <Welcome/> </div>
+//   )
+// }
+
+const App=()=>{
+  return(
+    <div style={{textAlign:'center'}}>
+      <Welcome name='Jaswith' greeting='Hello'/>
+      <Welcome name='Badulla' greeting='Hi'/>
+    </div>
+  )
+}
+
+export default App;
+
+
+
+
+import React from 'react'
+
+const Welcome=(props)=>{
+    const{name,greeting}=props
+return(
+    <h1 className='message'>
+        {greeting},{name}
+    </h1>
+)
+}
+
+export default Welcome;
