@@ -1,0 +1,50 @@
+07/02/2025
+
+List and Keys:
+
+In React , a list is a collection of items you want to show on screen 
+
+#Keys--Keys in react 
+--React know which items you havbe changed, updated
+
+map(): elements in array
+function will be applied to all elements
+
+
+Implemnetation
+
+FruitList.js
+
+import React from 'react';
+const FruitList=()=>{
+    const Fruits=['apple','cherry','orange','Grapes','Banana'];
+    return(
+        <div>
+            <h1>Fruits List</h1>
+            <ul>
+                {Fruits.map((fruit, index)=>(
+                    <li key={index}>{fruit}</li>
+                ))}
+            </ul>
+        </div>
+    )
+}
+
+export default FruitList;
+
+App.js
+
+
+import React from 'react';
+import "./App.css"
+import FruitList from './FruitList.js';
+
+const App=()=>{
+  return(
+    <div className="App">
+      <FruitList/>
+    </div>
+  )
+}
+
+export default App;
