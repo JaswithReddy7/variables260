@@ -1,0 +1,241 @@
+ListContext.js
+
+// ListContext.js
+import React, { createContext, useReducer, useContext } from 'react';
+
+// Create Context
+const ListContext = createContext();
+
+// Initial State
+const initialState = {
+  items: []
+};
+
+// Reducer Function
+const listReducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD_ITEM':
+      return {
+        items: [...state.items, {
+          id: Date.now(), // Unique ID using timestamp
+          text: action.payload
+        }]
+      };
+    case 'REMOVE_ITEM':
+      return {
+        items: state.items.filter(item => item.id !== action.payload)
+      };
+    default:
+      return state;
+  }
+};
+
+// Provider Component
+export const ListProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(listReducer, initialState);
+  
+  return (
+    <ListContext.Provider value={{ state, dispatch }}>
+      {children}
+    </ListContext.Provider>
+  );
+};
+
+// Custom Hook for consuming context
+export const useList = () => {
+  return useContext(ListContext);
+};
+
+
+
+AddItem.js
+
+// AddItem.js
+import React, { useState, useContext } from 'react';
+import { useList } from './ListContext';
+
+export const AddItem = () => {
+  const [inputText, setInputText] = useState('');
+  const { dispatch } = useList();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!inputText.trim()) return;
+    
+    dispatch({
+      type: 'ADD_ITEM',
+      payload: inputText
+    });
+    setInputText('');
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
+        placeholder="Enter new item"
+      />
+      <button type="submit">Add Item</button>
+    </form>
+  );
+};
+
+ItemList.js:
+
+// ItemList.js
+import React, { useMemo, useContext } from 'react';
+import { useList } from './ListContext';
+
+export const ItemList = () => {
+  const { state, dispatch } = useList();
+
+  // Memoized list to prevent unnecessary re-renders
+  const memoizedList = useMemo(() => (
+    state.items.map(item => (
+      <li key={item.id}>
+        {item.text}
+        <button onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: item.id })}>
+          Remove
+        </button>
+      </li>
+    ))
+  ), [state.items, dispatch]);
+
+  return (
+    <div>
+      <h3>Total Items: {state.items.length}</h3>
+      <ul>{memoizedList}</ul>
+    </div>
+  );
+};
+
+styles.css:
+
+/* styles.css (or your preferred CSS file name) */
+.App {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  input[type="text"] {
+    flex-grow: 1;
+    padding: 0.8rem;
+    border: 2px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #3498db;
+  }
+  
+  button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  form button {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  form button:hover {
+    background-color: #2980b9;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  li button {
+    background-color: #e74c3c;
+    color: white;
+    margin-left: 1rem;
+  }
+  
+  li button:hover {
+    background-color: #c0392b;
+  }
+  
+  h3 {
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: normal;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .App {
+      padding: 1rem;
+    }
+  
+    form {
+      flex-direction: column;
+    }
+  
+    input[type="text"] {
+      width: 100%;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
+
+
+
+
+App.js:
+import React from 'react';
+import { ListProvider } from './ListContext';
+import { AddItem } from './AddItem';
+import { ItemList } from './ItemList';
+import './styles.css'
+
+export default function App() {
+  return (
+    <ListProvider>
+      <div className="App">
+        <h1>Item Manager</h1>
+        <AddItem />
+        <ItemList />
+      </div>
+    </ListProvider>
+  );
+}
