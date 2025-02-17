@@ -1,0 +1,168 @@
+17/02/2025:
+
+Event handling in React:
+---Event handling in react is how you make your app do something when the user interacts 
+
+How to use Events in React:
+-use camelCase for event names
+-pass a function to the event(not to a function call),
+This function will run when the event happens
+
+a)click Event(onClick):
+ function App(){
+    const handleClick=()=>{
+        alert("Button Clicked")
+    };
+    return(
+        <button onClick={handleClick}>Click Me</button>
+    )
+}
+
+export default App;
+
+
+b)Change Event(onChange):
+forms: This happens when you type in a text box
+
+Key Points:
+target is a property of the event object, and is predefined by javascript for DOM events
+event.target always refers the element that triggered \
+
+
+/ import React,{useState} from 'react'
+// import "./App.css"
+// function App(){
+//     const[text,setText]=useState("")
+//     //initially the value is set empty string
+//     const handleChange=(event)=>{
+//         setText(event.target.value)
+//         //update the text state with the value input field
+//     }
+//     return(
+//         <div>
+//             <input type='text'value={text} onChange={handleChange}/>
+//             <p>Your Text: {text}</p>
+//         </div>
+//     )
+// }
+// export default App;
+
+// 
+
+App.css
+/* body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+button:hover::after {
+  opacity: 1;
+}
+
+p {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  animation: fadeIn 0.3s ease-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Mobile responsiveness 
+@media (max-width: 480px) {
+  div {
+      width: 90%;
+      padding: 1.5rem;
+  }
+  
+  button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+  }
+} */
+
+
+
+Handle key :
+
+
+
+import React,{ useState } from "react";
+import "./App.css"
+function App(){
+
+  const[key, setKey]=useState("");
+
+  const handleKeyDown=(event)=>{
+    setKey(event.key);
+  }
+
+  return(
+    <div className="App">
+      <h1>Welcome to Keyboard!</h1>
+      {key && <h2>Pressed key : {key}</h2>}
+      <input type="text" onKeyDown={handleKeyDown} placeholder="Press any key"/>
+    </div>
+    )
+}
+
+export default App;
